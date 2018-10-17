@@ -1,0 +1,42 @@
+<h3 style="margin-top: 10px;margin-left: 10px;"> You have logged in successfully </h3>
+<!-- <button class="btn-primary" (click)="toggle()" id="bt" style="margin-left: 10px;" >Add Account</button> -->
+<button class="btn-primary" (click)="showSection1 ? showSection1 = false : showSection1 = true;" id="bt" style="margin-left: 10px;" >Add Account</button>
+
+<form *ngIf="showSection1" style="margin: 5px 5px 5px 5px; padding: 5px 5px 5px 5px;">
+  <div>
+    <label>Username</label>
+    <input type="text" placeholder="Enter Username" [(ngModel)]="username" name="uname">
+  </div>
+  <div>
+    <label>UserId</label>
+    <input type="text" placeholder="Enter userId" [(ngModel)]="userid" name="uid">
+  </div>
+  <div>
+    <label>Password</label>
+    <input type="password" placeholder="Enter Password" [(ngModel)]="password" name="pwd">
+  </div>
+  <div>
+    <button type="submit" (click)="addUsers()" class="btn-primary" >Submit</button>
+  </div>
+</form> 
+<table class="table">
+  <thead>
+    <tr>
+      <th>UserName</th> 
+      <th>UserId</th>
+      <th>Password</th>
+      <th>Operation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users; let i = index">
+      <td>{{ user.username }}</td>
+      <td>{{ user.userid }}</td>
+      <td>{{ user.password }}</td>
+      <td><button type="submit" (click)="deleteUsers(i)" class="btn-primary" >Delete</button></td>
+    </tr>
+  </tbody>
+</table>
+<h5> {{ number > 0.8 ? 'yess' : 'nooo' }} </h5>
+
+
